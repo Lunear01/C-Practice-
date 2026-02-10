@@ -32,3 +32,28 @@ char *convert_lower_case(char *input) {
     return formatted;
 
 }
+
+char *remove_exclamation(char *input) {
+
+    // Counts the number of letters without '!'
+    int no_exclamation = 0;
+    for (int i = 0; input[i] != '\0'; i++) {
+        if (input[i] != '!') {
+            no_exclamation += 1;
+        }
+    }
+
+    // Allocate exact memory for the string
+    char *formatted = malloc(no_exclamation + 1);
+    int index = 0;
+
+    for (int i = 0; input[i] != '\0'; i++) {
+        if (input[i] != '!') {
+            formatted[index] = input[i];
+            index += 1;
+        }
+    }
+
+    formatted[no_exclamation] = '\0';
+    return formatted;
+}
